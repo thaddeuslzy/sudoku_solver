@@ -1,7 +1,7 @@
 # Sudoku
 
 ## Description
-This is my attempt at making a sudoky solver using the concepts learnt in my Introduction to AI course. It implements algorithms i learnt such as AC-3, Backchecking, and Forward Checking. It also uses the Most Contstrained Variable and Least Constraining Value heuristic for end-fast desicion-making. 
+This is my attempt at making a sudoku solver using the concepts learnt in my Intro to AI course. It implements algorithms I learnt such as AC-3, Backchecking, and Forward Checking. It also uses the Most Contstrained Variable and Least Constraining Value heuristic for end-fast desicion-making. 
 
 ## How to run
 Included is input.txt, which contains the mathematically hardest sudoku puzzle in the world.
