@@ -13,8 +13,6 @@ class Sudoku(object):
         self.createNeighbours()     # create self.neighbours
 
     def solve(self):
-        #TODO: Your code here
-
         if self.ac3():
             if self.isSolved():
                 print('solved')
@@ -25,13 +23,11 @@ class Sudoku(object):
                 assignment = self.backtrack(assignment)
 
                 if assignment:
-                    #TODO: output ans
                     self.setAnswers(assignment)
                     #print("ans found")
                 #else:
                     #print("No Soln")
 
-        # don't print anything here. just resturn the answer
         # self.ans is a list of lists
         return self.ans
         
@@ -102,7 +98,7 @@ class Sudoku(object):
                     
         return True
     
-    # consistent
+    # Check for consistency
     def isConsistent(self, assignment, var, value):
         consistent = True
         
@@ -123,8 +119,7 @@ class Sudoku(object):
                 if len(self.domains[x][y]) > 1:
                     return False
         return True
-
-    # combine     
+     
     def combine(self, alpha, beta):
         if isinstance(alpha, int):
             return [(alpha, b) for b in beta]
@@ -132,7 +127,6 @@ class Sudoku(object):
             return [(a, beta) for a in alpha]
         return [(a, b) for a in alpha for b in beta]
 
-    # Take iterable, and 
     def permutate(self, iterable):
         result = list()
 
@@ -152,7 +146,6 @@ class Sudoku(object):
                 # Trivial case where 1 value left
                 assignment[var] = self.domains[x][y]
         return assignment
-
 
     def setAnswers(self, assignment):
         for x in board_range:
@@ -274,19 +267,15 @@ class Sudoku(object):
 
         return sorted(self.domains[var[0]][var[1]], key= lambda val: self.numConflicts(var, val))
 
-    # you may add more classes/functions if you think is useful
-    # However, ensure all the classes/functions are in this file ONLY
-
 if __name__ == "__main__":
-    # STRICTLY do NOT modify the code in the main function here
     if len(sys.argv) != 3:
-        print ("\nUsage: python sudoku_A2_xx.py input.txt output.txt\n")
+        print ("\nUsage: python sudoku.py input.txt output.txt\n")
         raise ValueError("Wrong number of arguments!")
 
     try:
         f = open(sys.argv[1], 'r')
     except IOError:
-        print ("\nUsage: python sudoku_A2_xx.py input.txt output.txt\n")
+        print ("\nUsage: python sudoku.py input.txt output.txt\n")
         raise IOError("Input file not found!")
 
     puzzle = [[0 for i in range(9)] for j in range(9)]
